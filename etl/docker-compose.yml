@@ -1,0 +1,23 @@
+services:
+  exercise-video-etl:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://sitefitness:sitefitness@host.docker.internal:5432/sitefitness}
+      MINIO_ENDPOINT_URL: ${MINIO_ENDPOINT_URL:-http://host.docker.internal:9000}
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-sitefitness}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-sitefitness-minio-password}
+      MINIO_BUCKET: ${MINIO_BUCKET:-exercise-media}
+      MINIO_REGION: ${MINIO_REGION:-us-east-1}
+      OUTPUT_FORMAT: ${OUTPUT_FORMAT:-mp4}
+      MAX_WIDTH: ${MAX_WIDTH:-720}
+      VIDEO_CRF: ${VIDEO_CRF:-28}
+      LIMIT: ${LIMIT:-10}
+      FORCE: ${FORCE:-false}
+      PUBLIC_MEDIA_BASE_URL: ${PUBLIC_MEDIA_BASE_URL:-}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./work:/work
+    command: python scripts/process_exercise_videos.py

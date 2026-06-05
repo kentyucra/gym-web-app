@@ -1,0 +1,57 @@
+# macOS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# secrets / local env
+.env
+.env.*
+!.env.example
+!.env.*.example
+!openWA/OpenWA/.env.minimal
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / frontend
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Docker / local volumes / generated media
+etl/work/*
+!etl/work/.gitkeep
+minio/data/
+openWA/OpenWA/data/
+openWA/OpenWA/.wwebjs_auth/
+openWA/OpenWA/.wwebjs_cache/
+openWA/OpenWA/sessions/
+
+# Local copied/import data
+backend/week-*-workouts.json
+
+# Generated or private workout extraction files
+The Bodybuilding Transformation System*.pdf
+page-*.pdf
+page-*-workout.json
+page-*-workout.csv
+week-*-workouts.json
+week-*-workouts.csv
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
