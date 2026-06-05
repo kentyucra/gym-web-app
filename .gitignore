@@ -42,11 +42,8 @@ openWA/OpenWA/sessions/
 backend/week-*-workouts.json
 
 # Generated or private workout extraction files
-The Bodybuilding Transformation System*.pdf
 page-*.pdf
-page-*-workout.json
 page-*-workout.csv
-week-*-workouts.json
 week-*-workouts.csv
 
 # Logs
